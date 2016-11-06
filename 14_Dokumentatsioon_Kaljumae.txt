@@ -1,0 +1,23 @@
+﻿
+DOKUMENTATSIOON
+Sisendtekst kroonika_2003.t3, mille jaoks järgnev skript on koostatud, sisaldab endas tekstikatkeid 2003. aasta Kroonika ajakirjast. Sisendtekstiks on seega ajakirjandustekst. Fail on morfoloogiliselt analüüsitud ja ühestatud, seega on seal olemas sõnade morfoloogilised analüüsid ning lause algust ja lõppu näitavad märgendid <s> ja </s>. Iga sõna või sümbol ja tema analüüs(id) on omaette ridadel. Kokku on sellisel kujul failis ridu 113076.
+Eesmärgiks on luua skript, mis leiaks sisendtekstist kroonika_2003.t3 sellised ühendid, kus adverbile järgneb vahetult mõni verb. Et näha selliste ühendite esinemist tekstis selgemalt, on mõistlik koostada ühenditest sagedusloend verbi alusel. Esinemissageduste korrektseks leidmiseks tuleb kõik verbid teisendada ma-infinitiivi kujule. Skripti rakendamisel sisendteksti peal peaks seega tulema selline väljund, kus on ühendi esinemissagedus (sest koostatakse sagedusloend), ma-infinitiiv ning adverb (nt 6 lööma läbi). 
+
+SKRIPTI DOKUMENTATSIOON
+Skripti kasutamisel tuleb määrata ise sisendtekst (seda pole skripti sisse kirjutatud). Skripti pole lisatud ka tulemuse salvestamist faili.
+1) Skripti esimesel real tegeletakse faili selliste ridadega, kus on ühele sõnale jäänud mitu morfoloogilist analüüsi. Sed-käsuga eemaldatakse teised analüüsid, nii et jääb alles vaid sõna ning tema esimene analüüs.
+2) Seejärel muudetakse failis reavahetused tühikuteks. See on vajalik selleks, et oleks võimalik määrata, millal adverbile järgneb mõni verb. Kui tekst on ridade asemel ühe pika jupina, on võimalik kergelt järgnevusi määrata.
+3) Kolmandal skripti real on käsk, mis otsib sellist järjendit, kus esimene sõna on adverb ning sellele järgneb verb. Järjendi ette ja taha pannakse märk £, et vajaminevad järjendid oleksid muust tekstist mingil viisil eraldatud. 
+4) Et senine väljund selgemaks muuta, eemaldatakse kõik muud tekstiosad ning jäetakse alles ainult vajalik – adverbi+verbi ühendid. Seda on hea siin teha, sest vajaminevad järjendid on juba märgi £ abil muust tekstist n-ö eraldatud.
+5) Viiendal real tõstetakse märgi £ juurest kõik eraldi ridadele. See tähendab seda, et kui enne olid adverbi+verbi ühendid kõik üksteisele järgnevad, siis nüüd on need eraldi ridadel ning edasi on neid juba kergem töödelda.
+6) Kuuendal real eemaldatakse verbide hulgast „ei“, sest see ei ole ise tegusõna.
+7) Nüüd eemaldatakse adverbide analüüs. Kuna lõpuks on vaja saada puhtal kujul adverb+verb ühendid, siis ei ole adverbi analüüsi tarvis siin enam hoida (adverbil ei ole lemma erinev selle tekstikujust, seega jätame alles vaid tekstisõna).
+8) Kaheksandal real muudetakse kõik suurtähed väikesteks tähtedeks. Seda seepärast, et sagedusloendi tegemisel kõik ühesugused adverbid ikkagi ühte hulka kokku loetaks. Soovitud väljundi saamiseks ei ole tarvis eristada suure või väikese tähega esinemiste variante. 
+9) Töö käigus on faili tekkinud tühje ridu, need kustutatakse. Nii muutub väljund visuaalselt paremaks.
+10) Et eesmärgiks on saada väljund, kus verbid on ma-infinitiivi kujul, siis asendatakse verbide analüüsidel kõik alates plussmärgist lõpuga –ma. Nii on varasem morfoloogiline analüüs muudetud verbi ma-infinitiiviks.
+11) Mõned verbid koosnevad mitmest osast, nt ise_loomustama. Väljundis sellist detaili vaja ei ole, seega tuleb alakriipsud eemaldada.
+12) Morfoloogiliste analüüside vahel on tavaliselt neli tühikut, kuid et nüüd on analüüsid eemaldatud ning alles on jäänud vaid tavalised sõnad, siis asendatakse neli tühikut tavapärase ühe tühikuga. Nüüd on olemas korrektne ühend adverb+ma-infinitiiv.
+13) Et aga koostada sagedusloend verbi põhjal, tuleb ma-infinitiiv tõsta esimesele kohale. Nii saab väljundi ma-infinitiiv+adverb. 
+14) Väljundit uurides on näha, et sinna on jäänud sisse ka üks mittesobiv variant. See kustutatakse grep –v käsuga. See pole küll sobiv universaalse skripti jaoks, kuid on vahel üsna mugav viis, kuidas üksikust n-ö veast kiirelt lahti saada.
+15) Koostatakse sagedusloend, mis algab kõige sagedamini esinevate ühenditega.
+Skripti kasutamisel tuleb arvestada, et see ei pruugi igas punktis töötada täpselt selliselt mõne teise failiga.  
